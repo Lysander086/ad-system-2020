@@ -35,6 +35,7 @@ feign:
   hystrix:
     enabled: true
 
+# 启动监控信息
 management:
   endpoints:
     web:
