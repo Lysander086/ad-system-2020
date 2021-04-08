@@ -14,7 +14,9 @@ zuul:
   routes:
     sponsor:
       path: /ad-sponsor/**
+      # 微服务名字
       serviceId: eureka-client-ad-sponsor
+      # 是否去除前缀, 在此不要去除
       strip-prefix: false
     search:
       path: /ad-search/**
