@@ -1,17 +1,12 @@
 package com.imooc.ad.entity;
 
 // import com.imooc.ad.constant.CommonStatus;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -23,7 +18,6 @@ import java.util.Date;
 @Entity
 @Table(name = "ad_plan")
 public class AdPlan {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -59,7 +53,6 @@ public class AdPlan {
 
     public AdPlan(Long userId, String planName,
                   Date startDate, Date endDate) {
-
         this.userId = userId;
         this.planName = planName;
         // TODO: remove comment fix below

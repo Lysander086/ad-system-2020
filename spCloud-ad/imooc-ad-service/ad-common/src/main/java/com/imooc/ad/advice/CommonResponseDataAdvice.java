@@ -16,7 +16,6 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
  */
 @RestControllerAdvice
 public class CommonResponseDataAdvice implements ResponseBodyAdvice<Object> {
-
     /* 定义注解在什么条件下需要增强, */
     @Override
     public boolean supports(MethodParameter methodParameter,
@@ -40,7 +39,6 @@ public class CommonResponseDataAdvice implements ResponseBodyAdvice<Object> {
                                   Class<? extends HttpMessageConverter<?>> aClass,
                                   ServerHttpRequest serverHttpRequest,
                                   ServerHttpResponse serverHttpResponse) {
-
         CommonResponse<Object> response = new CommonResponse<>(0, "");
         if (null == o) {
             return response;

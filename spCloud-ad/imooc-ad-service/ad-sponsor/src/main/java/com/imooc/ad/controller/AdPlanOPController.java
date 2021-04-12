@@ -9,11 +9,7 @@ import com.imooc.ad.vo.AdPlanRequest;
 import com.imooc.ad.vo.AdPlanResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,7 +19,6 @@ import java.util.List;
 @Slf4j
 @RestController
 public class AdPlanOPController {
-
     private final IAdPlanService adPlanService;
 
     @Autowired

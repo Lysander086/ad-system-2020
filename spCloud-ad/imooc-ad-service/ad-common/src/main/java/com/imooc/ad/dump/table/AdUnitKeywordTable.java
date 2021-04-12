@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AdUnitKeywordTable {
-
     private Long unitId;
     private String keyword;
 }

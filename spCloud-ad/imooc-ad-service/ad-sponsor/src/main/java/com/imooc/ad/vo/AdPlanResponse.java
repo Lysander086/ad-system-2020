@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AdPlanResponse {
-
     private Long id;
     private String planName;
 }

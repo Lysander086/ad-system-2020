@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -15,9 +16,7 @@ public class AdPlan {
     private String planName;
     private Integer planStatus;
     private Date startDate;
-    private Data endDate;
-    private Data createTime;
-    private Data updateTime;
-
-
+    private Date endDate;
+    private Date createTime;
+    private Date updateTime;
 }

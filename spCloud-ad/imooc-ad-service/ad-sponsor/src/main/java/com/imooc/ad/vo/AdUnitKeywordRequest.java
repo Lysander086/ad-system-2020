@@ -13,14 +13,12 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AdUnitKeywordRequest {
-
     private List<UnitKeyword> unitKeywords;
 
     @Data
     @NoArgsConstructor
     @AllArgsConstructor
     public static class UnitKeyword {
-
         private Long unitId;
         private String keyword;
     }

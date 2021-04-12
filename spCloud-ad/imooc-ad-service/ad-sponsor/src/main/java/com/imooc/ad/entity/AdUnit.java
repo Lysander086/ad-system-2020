@@ -5,13 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -23,7 +17,6 @@ import java.util.Date;
 @Entity
 @Table(name = "ad_unit")
 public class AdUnit {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -41,7 +34,9 @@ public class AdUnit {
     @Column(name = "unit_status", nullable = false)
     private Integer unitStatus;
 
-    /** 广告位类型(开屏, 贴片, 中贴...) */
+    /**
+     * 广告位类型(开屏, 贴片, 中贴...)
+     */
     @Basic
     @Column(name = "position_type", nullable = false)
     private Integer positionType;

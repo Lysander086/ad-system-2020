@@ -16,7 +16,6 @@ import java.util.List;
         value = "eureka-client-ad-sponsor", /* value 指向要调用的 微服务的名称 */
         fallback = SponsorClientHystrix.class /* 服务降级 */)
 public interface SponsorClient {
-
     @PostMapping(value = "/ad-sponsor/get/adPlan")
     CommonResponse<List<AdPlan>> getAdPlans(@RequestBody AdPlanGetRequest request);
 

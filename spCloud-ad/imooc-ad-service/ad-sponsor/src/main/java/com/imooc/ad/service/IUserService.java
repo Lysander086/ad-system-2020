@@ -8,10 +8,9 @@ import com.imooc.ad.vo.CreateUserResponse;
  *
  */
 public interface IUserService {
-
     /**
      * 创建用户
-     * */
+     */
     CreateUserResponse createUser(CreateUserRequest request)
             throws AdException;
 }

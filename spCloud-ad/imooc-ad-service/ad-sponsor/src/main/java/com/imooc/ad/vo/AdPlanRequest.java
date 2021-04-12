@@ -12,7 +12,6 @@ import org.apache.commons.lang.StringUtils;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AdPlanRequest {
-
     private Long id;
     private Long userId;
     private String planName;

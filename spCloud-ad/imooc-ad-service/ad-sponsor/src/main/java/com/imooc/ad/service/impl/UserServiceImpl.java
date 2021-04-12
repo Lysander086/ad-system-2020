@@ -19,7 +19,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Slf4j
 @Service
 public class UserServiceImpl implements IUserService {
-
     private final AdUserRepository userRepository;
 
     @Autowired
@@ -31,7 +30,6 @@ public class UserServiceImpl implements IUserService {
     @Transactional
     public CreateUserResponse createUser(CreateUserRequest request)
             throws AdException {
-
         if (!request.validate()) {
             throw new AdException(Constants.ErrorMsg.REQUEST_PARAM_ERROR);
         }

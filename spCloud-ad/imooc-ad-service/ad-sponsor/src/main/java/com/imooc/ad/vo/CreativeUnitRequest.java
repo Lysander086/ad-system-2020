@@ -13,14 +13,12 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CreativeUnitRequest {
-
     private List<CreativeUnitItem> unitItems;
 
     @Data
     @NoArgsConstructor
     @AllArgsConstructor
     public static class CreativeUnitItem {
-
         private Long creativeId;
         private Long unitId;
     }

@@ -12,7 +12,6 @@ import org.apache.commons.lang.StringUtils;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AdUnitRequest {
-
     private Long planId;
     private String unitName;
 
@@ -20,7 +19,6 @@ public class AdUnitRequest {
     private Long budget;
 
     public boolean createValidate() {
-
         return null != planId && !StringUtils.isEmpty(unitName)
                 && positionType != null && budget != null;
     }

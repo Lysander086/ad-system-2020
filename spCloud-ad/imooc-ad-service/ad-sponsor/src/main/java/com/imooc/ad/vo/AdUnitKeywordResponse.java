@@ -13,6 +13,5 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AdUnitKeywordResponse {
-
     private List<Long> id;
 }

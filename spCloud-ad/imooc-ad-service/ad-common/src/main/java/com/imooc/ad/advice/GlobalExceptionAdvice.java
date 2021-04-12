@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 
 @RestControllerAdvice
 public class GlobalExceptionAdvice {
-
     @ExceptionHandler(value = AdException.class)
     /* An HTTP servlet is a special type of servlet that handles an HTTP request and provides an HTTP response, usually in the form of an HTML page */
     public CommonResponse<String> handlerAdException(HttpServletRequest req,

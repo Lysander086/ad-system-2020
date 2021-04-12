@@ -17,16 +17,13 @@ import javax.servlet.http.HttpServletRequest;
 @Slf4j
 @Component
 public class AccessLogFilter extends ZuulFilter {
-
     @Override
     public String filterType() {
         return FilterConstants.POST_TYPE;
     }
 
     @Override
-    public int filterOrder() {
-
-        // zuul 组件默认的 response filter 的 order 是 1000（因为zuul的FilterConstants.SEND_RESPONSE_FILTER_ORDER
+    public int filterOrder() {// zuul 组件默认的 response filter 的 order 是 1000（因为zuul的FilterConstants.SEND_RESPONSE_FILTER_ORDER
         // 常量就是1000），所以我们的 response 过滤器的 order要在 FilterConstants.SEND_RESPONSE_FILTER_ORDER 之前，否则不起作用
         return FilterConstants.SEND_RESPONSE_FILTER_ORDER - 1;
     }

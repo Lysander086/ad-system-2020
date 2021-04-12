@@ -2,7 +2,6 @@ package com.imooc.ad.dump;
 
 
 public class DConstant {
-
     public static final String DATA_ROOT_DIR = "/Users/zhanghu05/imooc/mysql_data/";
 
     // 各个表数据的存储文件名
