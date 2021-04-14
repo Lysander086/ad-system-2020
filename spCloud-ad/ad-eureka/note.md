@@ -1,0 +1,1 @@
+- remember to set active profile to "eureka" for this eureka 
