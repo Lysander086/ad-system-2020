@@ -1,7 +1,5 @@
 package com.imooc.ad.entity;
 
-// import com.imooc.ad.constant.CommonStatus;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
