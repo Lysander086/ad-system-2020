@@ -1,3 +1,6 @@
+# 感受
+- 对于这个课程的代码着实对这个业务还有为什么这么实现 很懵.
+
 # 代码疑点
 - 实现indexAware 的几个 java 文件的作用是什么? 如下图.
     - ![实现indexAware 的几个 java 文件](https://images.gitee.com/uploads/images/2021/0413/233218_1dfc570e_5489382.png "image_376.png")
