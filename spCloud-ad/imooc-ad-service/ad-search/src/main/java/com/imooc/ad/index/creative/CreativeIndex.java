@@ -8,9 +8,7 @@ import org.springframework.stereotype.Component;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
-/**
- *
- */
+
 @Slf4j
 @Component
 public class CreativeIndex implements IndexAware<Long, CreativeObject> {

@@ -2,9 +2,7 @@ package com.imooc.ad.constant;
 
 import lombok.Getter;
 
-/**
- *
- */
+
 @Getter
 public enum CreativeType {
     IMAGE(1, "图片"),

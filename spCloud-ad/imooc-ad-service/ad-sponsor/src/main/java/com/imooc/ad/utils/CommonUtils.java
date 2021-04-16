@@ -6,9 +6,7 @@ import org.apache.commons.lang.time.DateUtils;
 
 import java.util.Date;
 
-/**
- *
- */
+
 public class CommonUtils {
     private static String[] parsePatterns = {
             "yyyy-MM-dd", "yyyy/MM/dd", "yyyy.MM.dd"

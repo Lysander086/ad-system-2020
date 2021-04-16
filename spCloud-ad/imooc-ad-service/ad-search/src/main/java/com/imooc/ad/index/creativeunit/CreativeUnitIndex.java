@@ -10,9 +10,7 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentSkipListSet;
 
-/**
- *
- */
+
 @Slf4j
 @Component
 public class CreativeUnitIndex implements IndexAware<String, CreativeUnitObject> {

@@ -8,9 +8,7 @@ import com.imooc.ad.vo.AdPlanResponse;
 
 import java.util.List;
 
-/**
- *
- */
+
 public interface IAdPlanService {
     /**
      * 创建推广计划

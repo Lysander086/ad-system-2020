@@ -11,9 +11,7 @@ import java.util.concurrent.ConcurrentSkipListSet;
 
 import static com.imooc.ad.utils.CommonUtils.getOrCreate;
 
-/**
- *
- */
+
 @Slf4j
 @Component
 public class UnitDistrictIndex implements IndexAware<String, Set<Long>> {

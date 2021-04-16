@@ -4,9 +4,7 @@ import com.imooc.ad.exception.AdException;
 import com.imooc.ad.vo.CreateUserRequest;
 import com.imooc.ad.vo.CreateUserResponse;
 
-/**
- *
- */
+
 public interface IUserService {
     /**
      * 创建用户

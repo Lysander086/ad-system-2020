@@ -11,13 +11,7 @@ import com.imooc.ad.dao.unit_condition.AdUnitItRepository;
 import com.imooc.ad.dao.unit_condition.AdUnitKeywordRepository;
 import com.imooc.ad.dao.unit_condition.CreativeUnitRepository;
 import com.imooc.ad.dump.DConstant;
-import com.imooc.ad.dump.table.AdCreativeTable;
-import com.imooc.ad.dump.table.AdCreativeUnitTable;
-import com.imooc.ad.dump.table.AdPlanTable;
-import com.imooc.ad.dump.table.AdUnitDistrictTable;
-import com.imooc.ad.dump.table.AdUnitItTable;
-import com.imooc.ad.dump.table.AdUnitKeywordTable;
-import com.imooc.ad.dump.table.AdUnitTable;
+import com.imooc.ad.dump.table.*;
 import com.imooc.ad.entity.AdPlan;
 import com.imooc.ad.entity.AdUnit;
 import com.imooc.ad.entity.Creative;
@@ -41,9 +35,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- */
+
 @Slf4j
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {Application.class},

@@ -12,9 +12,7 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentSkipListSet;
 
-/**
- *
- */
+
 @Slf4j
 @Component
 public class UnitItIndex implements IndexAware<String, Set<Long>> {// <itTag, adUnitId set>

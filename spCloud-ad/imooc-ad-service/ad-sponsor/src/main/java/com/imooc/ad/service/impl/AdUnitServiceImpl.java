@@ -24,9 +24,7 @@ import org.springframework.util.CollectionUtils;
 import java.util.*;
 import java.util.stream.Collectors;
 
-/**
- *
- */
+
 @Service
 public class AdUnitServiceImpl implements IAdUnitService {
     private final AdPlanRepository planRepository;
