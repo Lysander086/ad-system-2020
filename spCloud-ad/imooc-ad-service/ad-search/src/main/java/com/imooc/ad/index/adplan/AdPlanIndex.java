@@ -11,6 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @Slf4j
 @Component
 public class AdPlanIndex implements IndexAware<Long, AdPlanObject> {
+
     private static Map<Long, AdPlanObject> objectMap;
 
     static {
@@ -24,6 +25,7 @@ public class AdPlanIndex implements IndexAware<Long, AdPlanObject> {
 
     @Override
     public void add(Long key, AdPlanObject value) {
+
         log.info("before add: {}", objectMap);
         objectMap.put(key, value);
         log.info("after add: {}", objectMap);
@@ -31,6 +33,7 @@ public class AdPlanIndex implements IndexAware<Long, AdPlanObject> {
 
     @Override
     public void update(Long key, AdPlanObject value) {
+
         log.info("before update: {}", objectMap);
 
         AdPlanObject oldObject = objectMap.get(key);
@@ -43,9 +46,9 @@ public class AdPlanIndex implements IndexAware<Long, AdPlanObject> {
         log.info("after update: {}", objectMap);
     }
 
-
     @Override
     public void delete(Long key, AdPlanObject value) {
+
         log.info("before delete: {}", objectMap);
         objectMap.remove(key);
         log.info("after delete: {}", objectMap);

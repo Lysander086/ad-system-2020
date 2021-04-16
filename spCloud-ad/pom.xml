@@ -17,7 +17,7 @@
     <packaging>pom</packaging>
 
     <name>imooc-ad-spring-cloud</name>
-    <description>ad</description>
+    <description>Project For ImoocAd SpringCloud</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>

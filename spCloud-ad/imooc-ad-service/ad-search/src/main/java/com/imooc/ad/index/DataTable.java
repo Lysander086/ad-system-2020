@@ -13,29 +13,10 @@ import java.util.concurrent.ConcurrentHashMap;
 @Component
 public class DataTable implements ApplicationContextAware, PriorityOrdered {
 
-    public static final Map<Class, Object> dataTableMap = new ConcurrentHashMap<>();
     private static ApplicationContext applicationContext;
 
-
-    public static <T> T of(Class<T> clazz) {
-        T instance = (T) dataTableMap.get(clazz);
-        if (null != instance) {
-            return instance;
-        }
-
-        dataTableMap.put(clazz, bean(clazz));
-        return (T) dataTableMap.get(clazz);
-    }
-
-
-    private static <T> T bean(String beanName) {
-        return (T) applicationContext.getBean(beanName);
-    }
-
-
-    private static <T> T bean(Class clazz) {
-        return (T) applicationContext.getBean(clazz);
-    }
+    public static final Map<Class, Object> dataTableMap =
+            new ConcurrentHashMap<>();
 
     @Override
     public void setApplicationContext(
@@ -46,5 +27,27 @@ public class DataTable implements ApplicationContextAware, PriorityOrdered {
     @Override
     public int getOrder() {
         return PriorityOrdered.HIGHEST_PRECEDENCE;
+    }
+
+    
+    public static <T> T of(Class<T> clazz) {
+
+        T instance = (T) dataTableMap.get(clazz);
+        if (null != instance) {
+            return instance;
+        }
+
+        dataTableMap.put(clazz, bean(clazz));
+        return (T) dataTableMap.get(clazz);
+    }
+
+    
+    private static <T> T bean(String beanName) {
+        return (T) applicationContext.getBean(beanName);
+    }
+
+    
+    private static <T> T bean(Class clazz) {
+        return (T) applicationContext.getBean(clazz);
     }
 }

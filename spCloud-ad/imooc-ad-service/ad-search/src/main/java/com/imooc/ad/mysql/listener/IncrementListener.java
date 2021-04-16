@@ -22,7 +22,7 @@ import java.util.Map;
 @Component
 public class IncrementListener implements Ilistener {
 
-    @Resource(name = "")
+    @Resource(name = "kafkaSender")
     private ISender sender;
 
     private final AggregationListener aggregationListener;
@@ -38,7 +38,7 @@ public class IncrementListener implements Ilistener {
 
         log.info("IncrementListener register db and table info");
         Constant.table2Db.forEach((k, v) ->
-                aggregationListener.register(v, k, this));
+        aggregationListener.register(v, k, this));
     }
 
     @Override

@@ -4,21 +4,22 @@ import com.imooc.ad.index.IndexAware;
 import com.imooc.ad.utils.CommonUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Component;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentSkipListSet;
 
+
 @Slf4j
 @Component
 public class UnitKeywordIndex implements IndexAware<String, Set<Long>> {
-    /* 倒排索引 */
-    private static Map<String, Set<Long>> keywordUnitMap;
 
-    /* 正向索引 */
+    private static Map<String, Set<Long>> keywordUnitMap;
     private static Map<Long, Set<String>> unitKeywordMap;
 
     static {
@@ -27,24 +28,34 @@ public class UnitKeywordIndex implements IndexAware<String, Set<Long>> {
     }
 
     @Override
-    public Set get(String key) {
-        return null;
+    public Set<Long> get(String key) {
+
+        if (StringUtils.isEmpty(key)) {
+            return Collections.emptySet();
+        }
+
+        Set<Long> result = keywordUnitMap.get(key);
+        if (result == null) {
+            return Collections.emptySet();
+        }
+
+        return result;
     }
 
     @Override
-    public void add(String key, Set<Long> values) {
+    public void add(String key, Set<Long> value) {
+
         log.info("UnitKeywordIndex, before add: {}", unitKeywordMap);
 
-
         Set<Long> unitIdSet = CommonUtils.getOrCreate(
-                key,
-                keywordUnitMap,
-                ConcurrentSkipListSet::new);
+                key, keywordUnitMap,
+                ConcurrentSkipListSet::new
+        );
+        unitIdSet.addAll(value);
 
-        unitIdSet.addAll(values);
-
-        for (Long unitId : values) {
-            Set<String> keywordSet = CommonUtils.getOrCreate(unitId, unitKeywordMap,
+        for (Long unitId : value) {
+            Set<String> keywordSet = CommonUtils.getOrCreate(
+                    unitId, unitKeywordMap,
                     ConcurrentSkipListSet::new
             );
             keywordSet.add(key);
@@ -55,21 +66,23 @@ public class UnitKeywordIndex implements IndexAware<String, Set<Long>> {
 
     @Override
     public void update(String key, Set<Long> value) {
+
         log.error("keyword index can not support update");
     }
 
     @Override
     public void delete(String key, Set<Long> value) {
+
         log.info("UnitKeywordIndex, before delete: {}", unitKeywordMap);
 
         Set<Long> unitIds = CommonUtils.getOrCreate(
                 key, keywordUnitMap,
                 ConcurrentSkipListSet::new
         );
-
         unitIds.removeAll(value);
 
         for (Long unitId : value) {
+
             Set<String> keywordSet = CommonUtils.getOrCreate(
                     unitId, unitKeywordMap,
                     ConcurrentSkipListSet::new
@@ -78,12 +91,13 @@ public class UnitKeywordIndex implements IndexAware<String, Set<Long>> {
         }
 
         log.info("UnitKeywordIndex, after delete: {}", unitKeywordMap);
-
     }
 
     public boolean match(Long unitId, List<String> keywords) {
+
         if (unitKeywordMap.containsKey(unitId)
                 && CollectionUtils.isNotEmpty(unitKeywordMap.get(unitId))) {
+
             Set<String> unitKeywords = unitKeywordMap.get(unitId);
 
             return CollectionUtils.isSubCollection(keywords, unitKeywords);

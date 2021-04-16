@@ -4,7 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 
 
@@ -14,6 +20,7 @@ import java.util.Date;
 @Entity
 @Table(name = "ad_creative")
 public class Creative {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -27,9 +34,7 @@ public class Creative {
     @Column(name = "type", nullable = false)
     private Integer type;
 
-    /**
-     * 物料的类型, 比如图片可以是 bmp, jpg等等
-     */
+    /** 物料的类型, 比如图片可以是 bmp, jpg等等 */
     @Basic
     @Column(name = "material_type", nullable = false)
     private Integer materialType;
@@ -42,23 +47,17 @@ public class Creative {
     @Column(name = "width", nullable = false)
     private Integer width;
 
-    /**
-     * 物料大小
-     */
+    /** 物料大小 */
     @Basic
     @Column(name = "size", nullable = false)
     private Long size;
 
-    /**
-     * 持续时长, 只有视频不为0
-     */
+    /** 持续时长, 只有视频不为0 */
     @Basic
     @Column(name = "duration", nullable = false)
     private Integer duration;
 
-    /**
-     * 审核状态
-     */
+    /** 审核状态 */
     @Basic
     @Column(name = "audit_status", nullable = false)
     private Integer auditStatus;

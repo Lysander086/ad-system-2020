@@ -1,6 +1,6 @@
 package com.imooc.ad.dump.table;
 
-import  lombok.AllArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AdUnitKeywordTable {
+
     private Long unitId;
     private String keyword;
 }

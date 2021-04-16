@@ -11,6 +11,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AdPlan {
+
     private Long id;
     private Long userId;
     private String planName;

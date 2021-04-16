@@ -1,7 +1,13 @@
 package com.imooc.ad.handler;
 
 import com.alibaba.fastjson.JSON;
-import com.imooc.ad.dump.table.*;
+import com.imooc.ad.dump.table.AdCreativeTable;
+import com.imooc.ad.dump.table.AdCreativeUnitTable;
+import com.imooc.ad.dump.table.AdPlanTable;
+import com.imooc.ad.dump.table.AdUnitDistrictTable;
+import com.imooc.ad.dump.table.AdUnitItTable;
+import com.imooc.ad.dump.table.AdUnitKeywordTable;
+import com.imooc.ad.dump.table.AdUnitTable;
 import com.imooc.ad.index.DataTable;
 import com.imooc.ad.index.IndexAware;
 import com.imooc.ad.index.adplan.AdPlanIndex;
@@ -26,12 +32,11 @@ import java.util.Set;
 /**
  * 1. 索引之间存在着层级的划分, 也就是依赖关系的划分
  * 2. 加载全量索引其实是增量索引 "添加" 的一种特殊实现
+ * 
  */
 @Slf4j
 public class AdLevelDataHandler {
 
-
-    /* 推广计划 */
     public static void handleLevel2(AdPlanTable planTable, OpType type) {
 
         AdPlanObject planObject = new AdPlanObject(

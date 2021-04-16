@@ -14,12 +14,14 @@ import java.util.function.Supplier;
 
 @Slf4j
 public class CommonUtils {
+
     public static <K, V> V getOrCreate(K key, Map<K, V> map,
                                        Supplier<V> factory) {
         return map.computeIfAbsent(key, k -> factory.get());
     }
 
     public static String stringConcat(String... args) {
+
         StringBuilder result = new StringBuilder();
         for (String arg : args) {
             result.append(arg);
@@ -31,7 +33,9 @@ public class CommonUtils {
 
     // Tue Jan 01 08:00:00 CST 2019
     public static Date parseStringDate(String dateString) {
+
         try {
+
             DateFormat dateFormat = new SimpleDateFormat(
                     "EEE MMM dd HH:mm:ss zzz yyyy",
                     Locale.US
@@ -40,6 +44,7 @@ public class CommonUtils {
                     dateFormat.parse(dateString),
                     -8
             );
+
         } catch (ParseException ex) {
             log.error("parseStringDate error: {}", dateString);
             return null;

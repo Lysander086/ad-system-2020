@@ -15,7 +15,9 @@ import java.util.concurrent.ConcurrentSkipListSet;
 
 @Slf4j
 @Component
-public class UnitItIndex implements IndexAware<String, Set<Long>> {// <itTag, adUnitId set>
+public class UnitItIndex implements IndexAware<String, Set<Long>> {
+
+    // <itTag, adUnitId set>
     private static Map<String, Set<Long>> itUnitMap;
 
     // <unitId, itTag set>
@@ -33,6 +35,7 @@ public class UnitItIndex implements IndexAware<String, Set<Long>> {// <itTag, ad
 
     @Override
     public void add(String key, Set<Long> value) {
+
         log.info("UnitItIndex, before add: {}", unitItMap);
 
         Set<Long> unitIds = CommonUtils.getOrCreate(
@@ -42,6 +45,7 @@ public class UnitItIndex implements IndexAware<String, Set<Long>> {// <itTag, ad
         unitIds.addAll(value);
 
         for (Long unitId : value) {
+
             Set<String> its = CommonUtils.getOrCreate(
                     unitId, unitItMap,
                     ConcurrentSkipListSet::new
@@ -54,11 +58,13 @@ public class UnitItIndex implements IndexAware<String, Set<Long>> {// <itTag, ad
 
     @Override
     public void update(String key, Set<Long> value) {
+
         log.error("it index can not support update");
     }
 
     @Override
     public void delete(String key, Set<Long> value) {
+
         log.info("UnitItIndex, before delete: {}", unitItMap);
 
         Set<Long> unitIds = CommonUtils.getOrCreate(
@@ -79,8 +85,10 @@ public class UnitItIndex implements IndexAware<String, Set<Long>> {// <itTag, ad
     }
 
     public boolean match(Long unitId, List<String> itTags) {
+
         if (unitItMap.containsKey(unitId)
                 && CollectionUtils.isNotEmpty(unitItMap.get(unitId))) {
+
             Set<String> unitKeywords = unitItMap.get(unitId);
 
             return CollectionUtils.isSubCollection(itTags, unitKeywords);

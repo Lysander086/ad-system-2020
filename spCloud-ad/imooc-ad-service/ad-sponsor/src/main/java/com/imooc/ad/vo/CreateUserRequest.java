@@ -10,9 +10,11 @@ import org.apache.commons.lang.StringUtils;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CreateUserRequest {
+
     private String username;
 
     public boolean validate() {
+
         return !StringUtils.isEmpty(username);
     }
 }

@@ -2,7 +2,13 @@ package com.imooc.ad.index;
 
 import com.alibaba.fastjson.JSON;
 import com.imooc.ad.dump.DConstant;
-import com.imooc.ad.dump.table.*;
+import com.imooc.ad.dump.table.AdCreativeTable;
+import com.imooc.ad.dump.table.AdCreativeUnitTable;
+import com.imooc.ad.dump.table.AdPlanTable;
+import com.imooc.ad.dump.table.AdUnitDistrictTable;
+import com.imooc.ad.dump.table.AdUnitItTable;
+import com.imooc.ad.dump.table.AdUnitKeywordTable;
+import com.imooc.ad.dump.table.AdUnitTable;
 import com.imooc.ad.handler.AdLevelDataHandler;
 import com.imooc.ad.mysql.constant.OpType;
 import org.springframework.context.annotation.DependsOn;
@@ -16,14 +22,13 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * 根据数据表导出的文件, 随后读取文件, 加载索引
- */
+
 @Component
 @DependsOn("dataTable")
 public class IndexFileLoader {
+
     @PostConstruct
-    public void init()  {
+    public void init() {
 
         List<String> adPlanStrings = loadDumpData(
                 String.format("%s%s",
@@ -50,7 +55,6 @@ public class IndexFileLoader {
                         DConstant.DATA_ROOT_DIR,
                         DConstant.AD_UNIT)
         );
-
         adUnitStrings.forEach(u -> AdLevelDataHandler.handleLevel3(
                 JSON.parseObject(u, AdUnitTable.class),
                 OpType.ADD
@@ -98,10 +102,13 @@ public class IndexFileLoader {
     }
 
     private List<String> loadDumpData(String fileName) {
-        try (BufferedReader br = Files.newBufferedReader(Paths.get(fileName))) {
+
+        try (BufferedReader br = Files.newBufferedReader(
+                Paths.get(fileName)
+        )) {
             return br.lines().collect(Collectors.toList());
-        } catch (IOException e) {
-            throw new RuntimeException(e.getMessage());
+        } catch (IOException ex) {
+            throw new RuntimeException(ex.getMessage());
         }
     }
 }

@@ -10,11 +10,12 @@ import java.util.List;
 
 @Configuration
 public class WebConfiguration implements WebMvcConfigurer {
+
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>>
-                                                   converters) {
+                                                       converters) {
+
         converters.clear();
-        /* 实现将java对象转换成json对象*/
         converters.add(new MappingJackson2HttpMessageConverter());
     }
 }

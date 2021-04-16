@@ -14,29 +14,37 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 @RestControllerAdvice
 public class CommonResponseDataAdvice implements ResponseBodyAdvice<Object> {
-    /* 定义注解在什么条件下需要增强, */
+
     @Override
+    
     public boolean supports(MethodParameter methodParameter,
                             Class<? extends HttpMessageConverter<?>> aClass) {
-        if (methodParameter.getDeclaringClass().isAnnotationPresent(IgnoreResponseAdvice.class))
-            return false;
 
-        if (methodParameter.getMethod().isAnnotationPresent(IgnoreResponseAdvice.class)) {
+        if (methodParameter.getDeclaringClass().isAnnotationPresent(
+                IgnoreResponseAdvice.class
+        )) {
+            return false;
+        }
+
+        if (methodParameter.getMethod().isAnnotationPresent(
+                IgnoreResponseAdvice.class
+        )) {
             return false;
         }
 
         return true;
     }
 
-
     @Nullable
     @Override
+    
     public Object beforeBodyWrite(@Nullable Object o,
                                   MethodParameter methodParameter,
                                   MediaType mediaType,
                                   Class<? extends HttpMessageConverter<?>> aClass,
                                   ServerHttpRequest serverHttpRequest,
                                   ServerHttpResponse serverHttpResponse) {
+
         CommonResponse<Object> response = new CommonResponse<>(0, "");
         if (null == o) {
             return response;

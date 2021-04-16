@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AdCreativeTable {
+
     private Long adId;
     private String name;
     private Integer type;

@@ -6,11 +6,12 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-/* AdPlanTable => AdPlanObject */
 public class AdPlanObject {
+
     private Long planId;
     private Long userId;
     private Integer planStatus;
@@ -35,5 +36,4 @@ public class AdPlanObject {
             this.endDate = newObject.getEndDate();
         }
     }
-
 }

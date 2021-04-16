@@ -43,14 +43,12 @@ public class TemplateHolder {
         return template.getTableTemplateMap().get(tableName);
     }
 
-    @SuppressWarnings("all")
     private void loadJson(String path) {
 
         ClassLoader cl = Thread.currentThread().getContextClassLoader();
         InputStream inStream = cl.getResourceAsStream(path);
 
         try {
-            assert inStream != null;
             Template template = JSON.parseObject(
                     inStream,
                     Charset.defaultCharset(),
@@ -82,20 +80,20 @@ public class TemplateHolder {
             );
 
             jdbcTemplate.query(SQL_SCHEMA, new Object[]{
-                            template.getDatabase(), table.getTableName()}
-                    ,
-                    (rs, i) -> {
-                        int pos = rs.getInt("ORDINAL_POSITION");
-                        String colName = rs.getString("COLUMN_NAME");
+                    template.getDatabase(), table.getTableName()
+            }, (rs, i) -> {
 
-                        if ((null != updateFields && updateFields.contains(colName))
-                                || (null != insertFields && insertFields.contains(colName))
-                                || (null != deleteFields && deleteFields.contains(colName))) {
-                            table.getPosMap().put(pos - 1, colName);
-                        }
+                int pos = rs.getInt("ORDINAL_POSITION");
+                String colName = rs.getString("COLUMN_NAME");
 
-                        return null;
-                    });
+                if ((null != updateFields && updateFields.contains(colName))
+                        || (null != insertFields && insertFields.contains(colName))
+                        || (null != deleteFields && deleteFields.contains(colName))) {
+                    table.getPosMap().put(pos - 1, colName);
+                }
+
+                return null;
+            });
         }
     }
 }

@@ -13,6 +13,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CreativeRequest {
+
     private String name;
     private Integer type;
     private Integer materialType;
@@ -24,6 +25,7 @@ public class CreativeRequest {
     private String url;
 
     public Creative convertToEntity() {
+
         Creative creative = new Creative();
         creative.setName(name);
         creative.setType(type);

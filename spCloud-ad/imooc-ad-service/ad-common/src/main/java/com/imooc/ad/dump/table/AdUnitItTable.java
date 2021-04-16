@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AdUnitItTable {
+
     private Long unitId;
     private String itTag;
 }

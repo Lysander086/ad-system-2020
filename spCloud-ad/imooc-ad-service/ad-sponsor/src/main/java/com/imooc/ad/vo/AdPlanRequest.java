@@ -10,6 +10,7 @@ import org.apache.commons.lang.StringUtils;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AdPlanRequest {
+
     private Long id;
     private Long userId;
     private String planName;
@@ -17,6 +18,7 @@ public class AdPlanRequest {
     private String endDate;
 
     public boolean createValidate() {
+
         return userId != null
                 && !StringUtils.isEmpty(planName)
                 && !StringUtils.isEmpty(startDate)
@@ -24,10 +26,12 @@ public class AdPlanRequest {
     }
 
     public boolean updateValidate() {
+
         return id != null && userId != null;
     }
 
     public boolean deleteValidate() {
+
         return id != null && userId != null;
     }
 }

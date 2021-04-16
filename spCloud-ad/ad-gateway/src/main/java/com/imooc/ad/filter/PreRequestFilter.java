@@ -7,9 +7,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
 import org.springframework.stereotype.Component;
 
-@Component
+
 @Slf4j
+@Component
 public class PreRequestFilter extends ZuulFilter {
+
     @Override
     public String filterType() {
         return FilterConstants.PRE_TYPE;
@@ -20,17 +22,17 @@ public class PreRequestFilter extends ZuulFilter {
         return 0;
     }
 
-    /* 只有当某些条件发生时才会执行 */
     @Override
     public boolean shouldFilter() {
-        /*  永远执行 */
         return true;
     }
 
     @Override
     public Object run() throws ZuulException {
-        RequestContext currentContext = RequestContext.getCurrentContext();
-        currentContext.set("startTime", System.currentTimeMillis());
+
+        RequestContext ctx = RequestContext.getCurrentContext();
+        ctx.set("startTime", System.currentTimeMillis());
+
         return null;
     }
 }
