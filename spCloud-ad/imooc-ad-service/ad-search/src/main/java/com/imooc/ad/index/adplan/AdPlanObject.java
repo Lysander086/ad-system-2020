@@ -9,6 +9,7 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+/* AdPlanTable => AdPlanObject */
 public class AdPlanObject {
     private Long planId;
     private Long userId;

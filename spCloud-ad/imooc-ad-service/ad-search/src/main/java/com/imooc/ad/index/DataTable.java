@@ -20,7 +20,6 @@ public class DataTable implements ApplicationContextAware, PriorityOrdered {
 
 
     public static <T> T of(Class<T> clazz) {
-
         T instance = (T) dataTableMap.get(clazz);
         if (null != instance) {
             return instance;
