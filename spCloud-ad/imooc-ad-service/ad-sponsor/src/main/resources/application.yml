@@ -14,9 +14,9 @@ spring:
       hibernate.format_sql: true
     open-in-view: false
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/imooc_ad_data?autoReconnect=true
+    url: jdbc:mysql://127.0.0.1:3306/imooc_ad_data?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
     username: root
-    password: Djangobbs
+    password: nroot
     tomcat:
       max-active: 4
       min-idle: 2

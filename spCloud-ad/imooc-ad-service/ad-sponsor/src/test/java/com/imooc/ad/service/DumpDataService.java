@@ -11,13 +11,7 @@ import com.imooc.ad.dao.unit_condition.AdUnitItRepository;
 import com.imooc.ad.dao.unit_condition.AdUnitKeywordRepository;
 import com.imooc.ad.dao.unit_condition.CreativeUnitRepository;
 import com.imooc.ad.dump.DConstant;
-import com.imooc.ad.dump.table.AdCreativeTable;
-import com.imooc.ad.dump.table.AdCreativeUnitTable;
-import com.imooc.ad.dump.table.AdPlanTable;
-import com.imooc.ad.dump.table.AdUnitDistrictTable;
-import com.imooc.ad.dump.table.AdUnitItTable;
-import com.imooc.ad.dump.table.AdUnitKeywordTable;
-import com.imooc.ad.dump.table.AdUnitTable;
+import com.imooc.ad.dump.table.*;
 import com.imooc.ad.entity.AdPlan;
 import com.imooc.ad.entity.AdUnit;
 import com.imooc.ad.entity.Creative;
@@ -122,7 +116,7 @@ public class DumpDataService {
                 writer.write(JSON.toJSONString(planTable));
                 writer.newLine();
             }
-            writer.close();
+
         } catch (IOException ex) {
             log.error("dumpAdPlanTable error");
         }
@@ -153,7 +147,7 @@ public class DumpDataService {
                 writer.write(JSON.toJSONString(unitTable));
                 writer.newLine();
             }
-            writer.close();
+
         } catch (IOException ex) {
             log.error("dumpAdUnitTable error");
         }
@@ -186,7 +180,7 @@ public class DumpDataService {
                 writer.write(JSON.toJSONString(creativeTable));
                 writer.newLine();
             }
-            writer.close();
+
         } catch (IOException ex) {
             log.error("dumpAdCreativeTable error");
         }
@@ -213,7 +207,7 @@ public class DumpDataService {
                 writer.write(JSON.toJSONString(creativeUnitTable));
                 writer.newLine();
             }
-            writer.close();
+
         } catch (IOException ex) {
             log.error("dumpAdCreativeUnit error");
         }
@@ -241,7 +235,7 @@ public class DumpDataService {
                 writer.write(JSON.toJSONString(unitDistrictTable));
                 writer.newLine();
             }
-            writer.close();
+
         } catch (IOException ex) {
             log.error("dumpAdUnitDistrictTable error");
         }
@@ -268,7 +262,7 @@ public class DumpDataService {
                 writer.write(JSON.toJSONString(unitItTable));
                 writer.newLine();
             }
-            writer.close();
+
         } catch (IOException ex) {
             log.error("dumpAdUnitItTable error");
         }
@@ -295,7 +289,7 @@ public class DumpDataService {
                 writer.write(JSON.toJSONString(unitKeywordTable));
                 writer.newLine();
             }
-            writer.close();
+
         } catch (IOException ex) {
             log.error("dumpAdUnitItTable error");
         }

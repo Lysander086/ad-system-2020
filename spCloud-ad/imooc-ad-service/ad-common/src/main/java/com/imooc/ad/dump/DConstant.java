@@ -3,7 +3,7 @@ package com.imooc.ad.dump;
 
 public class DConstant {
 
-    public static final String DATA_ROOT_DIR = "/Users/Public/Desktop/temForDump";
+    public static final String DATA_ROOT_DIR = "C:\\Users\\" + System.getProperty("user.name") + "\\Desktop\\test\\";
 
     // 各个表数据的存储文件名
     public static final String AD_PLAN = "ad_plan.data";
@@ -13,4 +13,8 @@ public class DConstant {
     public static final String AD_UNIT_IT = "ad_unit_it.data";
     public static final String AD_UNIT_DISTRICT = "ad_unit_district.data";
     public static final String AD_UNIT_KEYWORD = "ad_unit_keyword.data";
+
+    public static void main(String[] args) {
+        System.out.println(DATA_ROOT_DIR);
+    }
 }
