@@ -3,7 +3,7 @@ package com.imooc.ad.dump;
 
 public class DConstant {
 
-    public static final String DATA_ROOT_DIR = "C:\\Users\\" + System.getProperty("user.name") + "\\Desktop\\test\\";
+    public static final String DATA_ROOT_DIR = "C:\\Users\\" + System.getProperty("user.name") + "\\Desktop\\ad-exported-data\\";
 
     // 各个表数据的存储文件名
     public static final String AD_PLAN = "ad_plan.data";

@@ -48,7 +48,7 @@ eureka:
     prefer-ip-address: false
   client:
     service-url:
-      defaultZone: http://server1:8000/eureka/,http://server3:8002/eureka/
+      defaultZone: http://localhost:8000/eureka/,http://server3:8002/eureka/
 
 ---
 spring:
@@ -63,4 +63,4 @@ eureka:
     prefer-ip-address: false
   client:
     service-url:
-      defaultZone: http://server1:8000/eureka/,http://server2:8001/eureka/
+      defaultZone: http://localhost:8000/eureka/,http://server2:8001/eureka/

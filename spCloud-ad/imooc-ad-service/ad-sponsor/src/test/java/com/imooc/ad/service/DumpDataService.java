@@ -19,6 +19,7 @@ import com.imooc.ad.entity.unit_condition.AdUnitDistrict;
 import com.imooc.ad.entity.unit_condition.AdUnitIt;
 import com.imooc.ad.entity.unit_condition.AdUnitKeyword;
 import com.imooc.ad.entity.unit_condition.CreativeUnit;
+import com.imooc.ad.util.FileUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.CollectionUtils;
 import org.junit.Test;
@@ -111,6 +112,8 @@ public class DumpDataService {
         ));
 
         Path path = Paths.get(fileName);
+        // 如果目录不存在也直接把它进行创建
+        FileUtil.createDir(path.getParent().toString());
         try (BufferedWriter writer = Files.newBufferedWriter(path)) {
             for (AdPlanTable planTable : planTables) {
                 writer.write(JSON.toJSONString(planTable));

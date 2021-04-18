@@ -21,7 +21,6 @@ public class AccessLogFilter extends ZuulFilter {
 
     @Override
     public String filterType() {
-
         // 过滤器的类型
         return FilterConstants.POST_TYPE;
     }

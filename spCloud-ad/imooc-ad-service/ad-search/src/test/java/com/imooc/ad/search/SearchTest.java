@@ -11,15 +11,21 @@ import com.imooc.ad.search.vo.media.AdSlot;
 import com.imooc.ad.search.vo.media.App;
 import com.imooc.ad.search.vo.media.Device;
 import com.imooc.ad.search.vo.media.Geo;
+import com.imooc.ad.util.FileUtil;
+import lombok.SneakyThrows;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 
 @RunWith(SpringRunner.class)
@@ -29,6 +35,28 @@ public class SearchTest {
 
     @Autowired
     private ISearch search;
+
+    public static void main(String[] args) {
+        String fileName = "request.json";
+
+        final File f = new File(fileName);
+
+        System.out.println(f.toString());
+        System.out.printf(Optional.ofNullable(f.getParent()).toString());
+    }
+
+    @SneakyThrows
+    private static void writeFile(String fileName, String fileContent) {
+        File f = new File(fileName);
+        if (null == f.getParent()) {
+            fileName = System.getProperty("user.dir") + File.separator + fileName;
+        }
+
+        FileUtil.createFile(fileName);
+        try (final BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileName))) {
+            bufferedWriter.write(fileContent);
+        }
+    }
 
     @Test
     public void testFetchAds() {
@@ -48,6 +76,7 @@ public class SearchTest {
                 buildExampleGeo(),
                 buildExampleDevice()
         ));
+
         request.setFeatureInfo(buildExampleFeatureInfo(
                 Arrays.asList("宝马", "大众"),
                 Collections.singletonList(
@@ -56,6 +85,7 @@ public class SearchTest {
                 Arrays.asList("台球", "游泳"),
                 FeatureRelation.OR
         ));
+
         System.out.println(JSON.toJSONString(request));
         System.out.println(JSON.toJSONString(search.fetchAds(request)));
 
@@ -71,6 +101,7 @@ public class SearchTest {
                 buildExampleGeo(),
                 buildExampleDevice()
         ));
+
         request.setFeatureInfo(buildExampleFeatureInfo(
                 Arrays.asList("宝马", "大众", "标志"),
                 Collections.singletonList(
@@ -79,8 +110,13 @@ public class SearchTest {
                 Arrays.asList("台球", "游泳"),
                 FeatureRelation.AND
         ));
-        System.out.println(JSON.toJSONString(request));
+
+        writeFile("request.json", JSON.toJSONString(request));
+
+        // System.out.println(JSON.toJSONString(request));
         System.out.println(JSON.toJSONString(search.fetchAds(request)));
+
+        writeFile("service.json", JSON.toJSONString(search.fetchAds(request)));
 
     }
 
