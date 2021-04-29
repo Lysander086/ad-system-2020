@@ -25,7 +25,6 @@ import java.io.FileWriter;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 
 
 @RunWith(SpringRunner.class)
@@ -36,18 +35,9 @@ public class SearchTest {
     @Autowired
     private ISearch search;
 
-    public static void main(String[] args) {
-        String fileName = "request.json";
-
-        final File f = new File(fileName);
-
-        System.out.println(f.toString());
-        System.out.printf(Optional.ofNullable(f.getParent()).toString());
-    }
-
     @SneakyThrows
     private static void writeFile(String fileName, String fileContent) {
-        File f = new File(fileName);
+        final File f = new File(fileName);
         if (null == f.getParent()) {
             fileName = System.getProperty("user.dir") + File.separator + fileName;
         }
